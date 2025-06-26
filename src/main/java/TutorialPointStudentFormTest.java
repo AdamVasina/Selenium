@@ -1,3 +1,4 @@
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -20,7 +21,12 @@ public class TutorialPointStudentFormTest {
         ovladac = new ChromeDriver();
 
     }
+    @After
+    public void totoNastanePoKazdomTeste(){
+        ovladac.close();
+        ovladac.quit();
 
+    }
 
     @Given("Uzivatel je na stranke tutorial point student form")
     public void uzivatelJeNaStrankeTutorialPointStudentForm() {
@@ -50,7 +56,6 @@ public class TutorialPointStudentFormTest {
         assertTrue(ovladac.findElement(By.id("gender")).isSelected());
 
     }
-
 
 
     @Then("Radiobutton mail je odskrtnuty")
